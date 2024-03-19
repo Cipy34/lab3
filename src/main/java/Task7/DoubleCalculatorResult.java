@@ -1,16 +1,16 @@
 package Task7;
 
-public class DoubleCalculatorResult extends CalculatorResult{
+public final class DoubleCalculatorResult extends CalculatorResult{
 
     private Object l;
     private Object r;
-    private String o;
+    private final String o;
 
     public DoubleCalculatorResult(CalculatorRequest calculatorRequest) {
         super(calculatorRequest);
-        l = calculatorRequest.getLeftOperand();
-        r = calculatorRequest.getRightOperand();
-        o = calculatorRequest.getOperation();
+        l = calculatorRequest.leftOperand();
+        r = calculatorRequest.rightOperand();
+        o = calculatorRequest.operation();
     }
 
     @Override
@@ -21,16 +21,12 @@ public class DoubleCalculatorResult extends CalculatorResult{
         if(r instanceof Integer)
             r = (double) ((Integer) r);
 
-        switch (o){
-            case "+":
-                return (Double) l + (Double) r;
-            case "-":
-                return (Double) l - (Double) r;
-            case "*":
-                return (Double) l * (Double) r;
-            case "/":
-                return (Double) l / (Double) r;
-        }
-        return null;
+        return switch (o) {
+            case "+" -> (Double) l + (Double) r;
+            case "-" -> (Double) l - (Double) r;
+            case "*" -> (Double) l * (Double) r;
+            case "/" -> (Double) l / (Double) r;
+            default -> null;
+        };
     }
 }

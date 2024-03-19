@@ -1,7 +1,7 @@
 package Task7;
 
 public abstract class CalculatorResult{
-    private CalculatorRequest calculatorRequest;
+    private final CalculatorRequest calculatorRequest;
     protected CalculatorResult(CalculatorRequest calculatorRequest){
         this.calculatorRequest = calculatorRequest;
     }

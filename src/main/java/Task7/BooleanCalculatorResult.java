@@ -1,25 +1,23 @@
 package Task7;
 
-public class BooleanCalculatorResult extends CalculatorResult{
-    private Object l;
-    private Object r;
-    private String o;
+public final class BooleanCalculatorResult extends CalculatorResult{
+    private final Object l;
+    private final Object r;
+    private final String o;
 
     public BooleanCalculatorResult(CalculatorRequest calculatorRequest) {
         super(calculatorRequest);
-        l = calculatorRequest.getLeftOperand();
-        r = calculatorRequest.getRightOperand();
-        o = calculatorRequest.getOperation();
+        l = calculatorRequest.leftOperand();
+        r = calculatorRequest.rightOperand();
+        o = calculatorRequest.operation();
     }
 
     @Override
     public Boolean computeResult() {
-        switch (o){
-            case "&&":
-                return (Boolean) l && (Boolean) r;
-            case "||":
-                return (Boolean) l || (Boolean) r;
-        }
-        return null;
+        return switch (o) {
+            case "&&" -> (Boolean) l && (Boolean) r;
+            case "||" -> (Boolean) l || (Boolean) r;
+            default -> null;
+        };
     }
 }

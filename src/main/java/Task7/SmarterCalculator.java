@@ -3,7 +3,7 @@ package Task7;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SmarterCalculator {
+public final class SmarterCalculator {
     public static List<CalculatorResult> calculate(String[] args){
         InputConverter inputConverter = new InputConverter();
         List<CalculatorResult> rez = new ArrayList<>();

@@ -4,7 +4,7 @@ package Task7;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InputConverter {
+public final class InputConverter {
     public static List<CalculatorRequest> mapRequests(String[] args){
         List<CalculatorRequest> l = new ArrayList<>();
         Object leftOperand = null;
