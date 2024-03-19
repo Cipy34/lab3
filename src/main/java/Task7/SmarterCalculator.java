@@ -2,7 +2,7 @@ package Task7;
 
 import java.util.List;
 
-public final class SmarterCalculator {
+public record SmarterCalculator() {
     private static PrintFunction print;
 
     public static void setPrint(PrintFunction print2){
